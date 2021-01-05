@@ -49,7 +49,7 @@ export default function HomePage (props) {
         </div>
         <div className="row mb-4">
           <div className="col-12 m-2">
-            <h3>Categories</h3>
+            <h3>Food and Beverages</h3>
           </div>
           {
             categories.map(detail => (

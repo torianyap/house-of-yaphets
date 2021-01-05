@@ -3,12 +3,8 @@ import { Switch, Route } from 'react-router-dom'
 import { NavBar } from './components'
 import { 
   HomePage, 
-  SiemBoKoe, 
-  SBK_Supplies_Page, 
-  ZihqerenPage,
-  BatikPage,
-  PropolaPage,
   DetailsPage,  
+  FilterPage
 } from './pages'
 
 function App() {
@@ -17,11 +13,7 @@ function App() {
     <NavBar />
     <Switch>
       <Route path="/product/:title" component={ DetailsPage } />
-      <Route path="/zihqeren" component={ZihqerenPage} />
-      <Route path="/propola" component={ PropolaPage } />
-      <Route path="/batik-nuswantoro" component={BatikPage} />
-      <Route path="/sbk-supplies" component={ SBK_Supplies_Page } />
-      <Route path="/sbk" component={ SiemBoKoe } />
+      <Route path="/:category" component={ FilterPage } />
       <Route exact path="/" component={ HomePage } />
     </Switch>
     </>

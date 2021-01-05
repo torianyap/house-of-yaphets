@@ -1,7 +1,3 @@
 export { default as HomePage } from './HomePage'
-export { default as SiemBoKoe } from './SiemBoKoe'
-export { default as BatikPage } from './Batik_Nuswantoro'
-export { default as PropolaPage } from './Propola'
-export { default as SBK_Supplies_Page } from './SBK_Supplies'
-export { default as ZihqerenPage } from './Zihqeren'
 export { default as DetailsPage } from './DetailsPage'
+export { default as FilterPage } from './FilterPage'
