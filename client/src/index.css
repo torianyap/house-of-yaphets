@@ -24,8 +24,9 @@ code {
 }
 
 .content-container {
-  padding-top: 20px;
-  padding-left: 180px;
+  /* padding-top: 20px;
+  padding-left: 180px; */
+  margin-top: 8em;
 }
 
 .sidebar-logo {
@@ -94,4 +95,29 @@ code {
   background-color: transparent;
 }
 
+.nav-style {
+  border-bottom: 1px solid rgb(208, 208, 208);
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 9;
+  background-color: white;
+}
 
+.search-form {
+  padding: 8px 20px;
+  border-radius: 10px;
+  border: 1px solid darkgrey;
+}
+
+.search-form input {
+  border: none;
+}
+
+.category {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}

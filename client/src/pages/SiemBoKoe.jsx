@@ -11,7 +11,7 @@ export default function SiembokoePage (props) {
       method: 'GET'
     })
       .then(({ data }) => {
-        const tenth = data.slice(0, 9)
+        const tenth = data.slice(0, 8)
         setDummy(tenth)
       })
       .catch(console.log)
@@ -19,7 +19,7 @@ export default function SiembokoePage (props) {
 
   return (
     <>
-    <div className="container content-container">
+    <div className="container mt-4">
       <h1 className="text-center mb-3">SiemBoKoe Products</h1>
       <div className="row">
         {

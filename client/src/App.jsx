@@ -1,20 +1,22 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
-import { SideBar } from './components'
+import { NavBar } from './components'
 import { 
   HomePage, 
   SiemBoKoe, 
   SBK_Supplies_Page, 
   ZihqerenPage,
   BatikPage,
-  PropolaPage,  
+  PropolaPage,
+  DetailsPage,  
 } from './pages'
 
 function App() {
   return (
     <>
-    <SideBar/>
+    <NavBar />
     <Switch>
+      <Route path="/product/:title" component={ DetailsPage } />
       <Route path="/zihqeren" component={ZihqerenPage} />
       <Route path="/propola" component={ PropolaPage } />
       <Route path="/batik-nuswantoro" component={BatikPage} />
