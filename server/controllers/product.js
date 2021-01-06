@@ -1,10 +1,14 @@
-const { Product } = require('../models')
+const { Product, Category } = require('../models')
 
 class ProductController {
   static async readProducts (req, res, next) {
+    const filter = req.query
+
     try {
       const products = await Product.findAll({
-        order: [['id', 'asc']]
+        order: [['id', 'asc']],
+        where: filter,
+        include: Category
       })
       res.status(200).json(products)
     } catch (error) {

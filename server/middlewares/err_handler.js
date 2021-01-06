@@ -7,7 +7,7 @@ function err_handler (err, req, res, next) {
     msg = err.errors.map(el => el.message).join(', ')
   }
 
-  console.log(err)
+  console.error(err)
   res.status(status).json({ msg: msg })
 }
 

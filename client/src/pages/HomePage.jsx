@@ -1,55 +1,27 @@
-import React, { useEffect, useState } from 'react'
-import { Category, ProductCard } from '../components'
-import axios from 'axios'
+import React, { useEffect } from 'react'
+import { Category, Loading, ProductCard, SearchForm } from '../components'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchCategories, fetchProducts } from "../store/actions"
 
 export default function HomePage (props) {
-  const [products, setProducts] = useState([])
-  const categories = [
-    {
-      title: 'Siembokoe',
-      image: '',
-      page: '/sbk'
-    },
-    {
-      title: 'Porky Up',
-      image: '',
-      page: '/porky'
-    },
-    {
-      title: 'SBK Supplies',
-      image: '',
-      page: '/sbk-supplies'
-    }
-  ]
+  const dispatch = useDispatch()
+  const { categories, products, product_load } = useSelector(state => state)
 
   useEffect(() => {
-    axios({
-      method: 'GET',
-      url: 'http://localhost:4000/products'
-    })
-      .then(({ data }) => {
-        setProducts(data)
-      })
-      .catch(console.log())
-  }, [])
+    dispatch(fetchCategories())
+    dispatch(fetchProducts())
+  }, [dispatch])
+
+  if (product_load) return <Loading/>
 
   return (
     <>
     <div className="container" style={{ marginTop: '8em' }}>
       <div>
-        <div className="row mb-4">
-          <div className="col-12">
-            <form className="search-form">
-              <div className="d-flex align-items-center" role="button">
-                <span className="fas fa-search mr-2" style={{ fontSize: '20px' }}></span>
-                <input type="text" name="search" id="search" className="form-control" placeholder="Search Here"/>
-              </div>
-            </form>
-          </div>
-        </div>
-        <div className="row mb-4">
+        <SearchForm />
+        <div className="row mb-2">
           <div className="col-12 m-2">
-            <h3>Food and Beverages</h3>
+            <h3><b>Categories</b></h3>
           </div>
           {
             categories.map(detail => (
@@ -59,7 +31,7 @@ export default function HomePage (props) {
         </div>
         <div className="row mb-4">
           <div className="col-12">
-            <h3>All Products</h3>
+            <h3><b>All Products</b></h3>
           </div>
           {
             products.map(product => (

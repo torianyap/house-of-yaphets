@@ -1,6 +1,11 @@
 'use strict';
 
-const categories = require('../category.json')
+const categories = require('./category.json')
+
+categories.forEach(detail => {
+  detail.createdAt = new Date()
+  detail.updatedAt = new Date()
+})
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {

@@ -6,7 +6,7 @@ route.get('/', ProductController.readProducts)
 route.get('/:id', ProductController.productDetail)
 
 route.use(Auth.authentication)
-route.use('/:id', Auth.authorization)
+// route.use('/:id', Auth.authorization) ini ntar auth admin
 
 route.post('/', ProductController.addProduct)
 route.put('/:id', ProductController.updateProduct)
